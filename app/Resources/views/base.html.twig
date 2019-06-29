@@ -1,13 +1,143 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Панель управления преподавателя</title>
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
+    <!--Icons-->
+    <script src="{{ asset('js/lumino.glyphs.js') }}"></script>
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js')}}"></script>
+    <![endif]-->
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/teacher"><span>Личный кабинет преподавателя</span></a>
+            <ul class="user-menu">
+                <li class="dropdown pull-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <svg class="glyph stroked male-user">
+                            <use xlink:href="#stroked-male-user"></use>
+                        </svg>
+                        Иванова Нина Петровна <span class="caret"></span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+        <li class="active"><a href="{{ path('teacher') }}">
+                <svg class="glyph stroked dashboard-dial">
+                    <use xlink:href="#stroked-dashboard-dial"></use>
+                </svg>
+                Сводная информация</a></li>
+        {#<li><a href="{{ path('medialibrary') }}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Медиа библиотека</a></li>#}
+
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-4"><span class="glyphicon glyphicon-user"
+                                                                      aria-hidden="true"></span></span> Группы учеников
+            </a>
+            <ul class="children collapse in" id="sub-item-4">
+                {% for class in gruopKid %}
+                    <li>
+                        <a class="" href="{{ path('group_item', {'id': class.id}) }}">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ class.classnumber }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-1"><span class="glyphicon glyphicon-globe"
+                                                                      aria-hidden="true"></span></span> Социальная
+                адаптация
+            </a>
+            <ul class="children collapse in" id="sub-item-1">
+                {% for group in groupAdapt %}
+                    <li>
+                        <a class="" href="{{ path('adaptation_item', {'id': group.id}) }}">
+                            <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> {{ group.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+
+        <li class="parent ">
+            <a href="#">
+                <span data-toggle="collapse" href="#sub-item-3"><span class="glyphicon glyphicon-font"
+                                                                      aria-hidden="true"></span></span> Русский язык
+            </a>
+            <ul class="children collapse in" id="sub-item-3">
+                {% for dict in dictant %}
+                    <li>
+                        <a class="" href="{{ path('dictant_item', {'id': dict.id}) }}">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{ dict.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+
+                <li>
+                    <a class="" href="#">
+                        <svg class="glyph stroked chevron-right">
+                            <use xlink:href="#stroked-chevron-right"></use>
+                        </svg>
+                        Добавить диктант
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div><!--/.sidebar-->
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/chart.min.js') }}"></script>
+<script src="{{ asset('js/chart-data.js') }}"></script>
+<script src="{{ asset('js/easypiechart.js') }}"></script>
+<script src="{{ asset('js/easypiechart-data.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+<script>
+    $('#calendar').datepicker({});
+
+    !function ($) {
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    })
+</script>
+</body>
 </html>
