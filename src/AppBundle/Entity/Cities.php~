@@ -1,0 +1,81 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cities
+ *
+ * @ORM\Table(name="cities", uniqueConstraints={@ORM\UniqueConstraint(name="UK_cities_id", columns={"id"})})
+ * @ORM\Entity
+ */
+class Cities
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id = '0';
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="district", type="integer", nullable=true)
+     */
+    private $district;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="region", type="integer", nullable=true)
+     */
+    private $region;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="name", type="string", length=150, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="parentcityid", type="integer", nullable=true)
+     */
+    private $parentcityid;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ready", type="integer", nullable=true)
+     */
+    private $ready;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="kodtst", type="integer", nullable=false)
+     */
+    private $kodtst = '0';
+
+    /**
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="bgdate", type="datetime", nullable=true, options={"default"="CURRENT_TIMESTAMP"})
+     */
+    private $bgdate = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="AOGUID", type="string", length=255, nullable=true)
+     */
+    private $aoguid;
+
+
+}

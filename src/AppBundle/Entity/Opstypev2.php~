@@ -1,0 +1,39 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Opstypev2
+ *
+ * @ORM\Table(name="opstypev2", uniqueConstraints={@ORM\UniqueConstraint(name="UK_opstypev2_id", columns={"id"})})
+ * @ORM\Entity
+ */
+class Opstypev2
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="abbr", type="string", length=255, nullable=false)
+     */
+    private $abbr;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="transcript", type="string", length=255, nullable=true)
+     */
+    private $transcript;
+
+
+}

@@ -1,0 +1,129 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Operationaddress
+ *
+ * @ORM\Table(name="operationaddress", uniqueConstraints={@ORM\UniqueConstraint(name="UK_operationaddress_index", columns={"index"})}, indexes={@ORM\Index(name="IDX_operationaddress_cityId", columns={"cityId"}), @ORM\Index(name="IDX_operationaddress_type", columns={"type"})})
+ * @ORM\Entity
+ */
+class Operationaddress
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="index", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $index;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="lat", type="string", length=255, nullable=true)
+     */
+    private $lat;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="lon", type="string", length=255, nullable=true)
+     */
+    private $lon;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="check", type="integer", nullable=true)
+     */
+    private $check;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="SummRating", type="integer", nullable=false)
+     */
+    private $summrating = '0';
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="votes", type="integer", nullable=false)
+     */
+    private $votes = '0';
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="opssubm", type="integer", nullable=true)
+     */
+    private $opssubm;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="servicesConclusion", type="string", length=255, nullable=true)
+     */
+    private $servicesconclusion;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="servicesMail", type="string", length=255, nullable=true)
+     */
+    private $servicesmail;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="servicesPhone", type="string", length=255, nullable=true)
+     */
+    private $servicesphone;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="typeCode", type="string", length=255, nullable=true)
+     */
+    private $typecode;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_modified", type="datetime", nullable=false, options={"default"="0000-00-00 00:00:00"})
+     */
+    private $lastModified = '0000-00-00 00:00:00';
+
+    /**
+     * @var Cities
+     *
+     * @ORM\ManyToOne(targetEntity="Cities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="cityId", referencedColumnName="id")
+     * })
+     */
+    private $cityid;
+
+    /**
+     * @var Opstypev2
+     *
+     * @ORM\ManyToOne(targetEntity="Opstypev2")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="type", referencedColumnName="id")
+     * })
+     */
+    private $type;
+
+
+}

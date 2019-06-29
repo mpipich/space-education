@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6ba8338d-96ec-4acc-86c9-d02887d192f4" name="mpipich_lookpost" url="http://176.57.209.9">
+        <fileTransfer host="176.57.209.9" port="22" rootFolder="/home/m/mpipich/jkh/" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
