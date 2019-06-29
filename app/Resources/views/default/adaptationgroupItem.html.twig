@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('teacher') }}">
+                        <svg class="glyph stroked home">
+                            <use xlink:href="#stroked-home"></use>
+                        </svg>
+                    </a></li>
+                <li class="active">Социальная адаптация</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{ adaptation_item.name }}</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-orange panel-widget">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left">
+                            <svg class="glyph stroked empty-message">
+                                <use xlink:href="#stroked-empty-message"></use>
+                            </svg>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">{{ adaptation_item.tests|length }}</div>
+                            <div class="text-muted">Количество вопросов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-blue panel-widget ">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left" style="background-color: #009846">
+                            <span class="glyphicon glyphicon-thumbs-up" style="font-size: 48px"
+                                  aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">120</div>
+                            <div class="text-muted">Успешных прохождений</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-red panel-widget">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left">
+                            <span class="glyphicon glyphicon-thumbs-down" style="font-size: 48px"
+                                  aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">5</div>
+                            <div class="text-muted">Неудачных прохождений</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Успешных прохождений</h4>
+                        <div class="easypiechart" id="easypiechart-teal" data-percent="95%"><span
+                                    class="percent">95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Неудачных прохождений</h4>
+                        <div class="easypiechart" id="easypiechart-red" data-percent="5"><span class="percent">5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#<div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>New Orders</h4>
+                        <div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Comments</h4>
+                        <div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>#}
+
+
+        </div><!--/.row-->
+
+        <div class="row">{% for testAdapt in adaptation_item.tests %}
+            <div class="col-md-12">
+
+                <div class="panel-heading dark-overlay">{{ testAdapt.question }}</div>
+                <div class="row">
+                    {% if testAdapt.variantOk %}
+                        <div class="col-xs-6 col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body easypiechart-panel">
+                                    <h4>{{ testAdapt.variantOk.name }}</h4>
+                                    <img src="/uploads/{{ testAdapt.variantOk.url }}" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if testAdapt.variantNo1 %}
+                        <div class="col-xs-6 col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body easypiechart-panel">
+                                    <h4>{{ testAdapt.variantNo1.name }}</h4>
+                                    <img src="/uploads/{{ testAdapt.variantNo1.url }}" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if testAdapt.variantNo2 %}
+                        <div class="col-xs-6 col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body easypiechart-panel">
+                                    <h4>{{ testAdapt.variantNo2.name }}</h4>
+                                    <img src="/uploads/{{ testAdapt.variantNo2.url }}" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if testAdapt.variantNo3 %}
+                        <div class="col-xs-6 col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-body easypiechart-panel">
+                                    <h4>{{ testAdapt.variantNo3.name }}</h4>
+                                    <img src="/uploads/{{ testAdapt.variantNo3.url }}" height="100px">
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% endfor %}<!--/.col-->
+
+            {#<div class="col-md-4">
+
+                <div class="panel panel-blue">
+                    <div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Группы учеников</div>
+                    <div class="panel-body">
+                        <ul class="todo-list">
+                            {%  for class in schoolclass  %}
+                                <li class="todo-list-item">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="checkbox" value="{{ class.id }}"/>
+                                        <label for="checkbox">{{ class.classnumber }}</label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <button class="btn btn-primary btn-md" id="btn-todo">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>#}<!--/.col-->
+        </div><!--/.row-->
+    </div>    <!--/.main-->
+
+
+{% endblock %}
