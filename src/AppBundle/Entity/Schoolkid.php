@@ -46,7 +46,6 @@ class Schoolkid
     private $idclass;
 
 
-
     /**
      * Get id.
      *
@@ -55,6 +54,16 @@ class Schoolkid
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get fio.
+     *
+     * @return string
+     */
+    public function getFio()
+    {
+        return $this->fio;
     }
 
     /**
@@ -72,13 +81,13 @@ class Schoolkid
     }
 
     /**
-     * Get fio.
+     * Get dr.
      *
      * @return string
      */
-    public function getFio()
+    public function getDr()
     {
-        return $this->fio;
+        return $this->dr;
     }
 
     /**
@@ -96,13 +105,13 @@ class Schoolkid
     }
 
     /**
-     * Get dr.
+     * Get idclass.
      *
-     * @return string
+     * @return \AppBundle\Entity\Schoolclass|null
      */
-    public function getDr()
+    public function getIdclass()
     {
-        return $this->dr;
+        return $this->idclass;
     }
 
     /**
@@ -117,15 +126,5 @@ class Schoolkid
         $this->idclass = $idclass;
 
         return $this;
-    }
-
-    /**
-     * Get idclass.
-     *
-     * @return \AppBundle\Entity\Schoolclass|null
-     */
-    public function getIdclass()
-    {
-        return $this->idclass;
     }
 }

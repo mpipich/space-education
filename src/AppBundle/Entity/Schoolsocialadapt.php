@@ -78,6 +78,15 @@ class Schoolsocialadapt
      */
     private $variantOk;
 
+    /**
+     * @var Schoolsocialgroup
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Schoolsocialgroup", inversedBy="tests")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_group", referencedColumnName="id")
+     * })
+     */
+    private $schoolsocialgroup;
 
 
     /**
@@ -88,6 +97,16 @@ class Schoolsocialadapt
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get question.
+     *
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 
     /**
@@ -105,13 +124,13 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get question.
+     * Get iditem.
      *
-     * @return string
+     * @return \AppBundle\Entity\Schoolitems|null
      */
-    public function getQuestion()
+    public function getIditem()
     {
-        return $this->question;
+        return $this->iditem;
     }
 
     /**
@@ -129,13 +148,13 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get iditem.
+     * Get variantNo2.
      *
-     * @return \AppBundle\Entity\Schoolitems|null
+     * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getIditem()
+    public function getVariantNo2()
     {
-        return $this->iditem;
+        return $this->variantNo2;
     }
 
     /**
@@ -153,13 +172,13 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get variantNo2.
+     * Get variantNo3.
      *
      * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getVariantNo2()
+    public function getVariantNo3()
     {
-        return $this->variantNo2;
+        return $this->variantNo3;
     }
 
     /**
@@ -177,13 +196,13 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get variantNo3.
+     * Get variantNo1.
      *
      * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getVariantNo3()
+    public function getVariantNo1()
     {
-        return $this->variantNo3;
+        return $this->variantNo1;
     }
 
     /**
@@ -201,13 +220,13 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get variantNo1.
+     * Get variantOk.
      *
      * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getVariantNo1()
+    public function getVariantOk()
     {
-        return $this->variantNo1;
+        return $this->variantOk;
     }
 
     /**
@@ -225,12 +244,26 @@ class Schoolsocialadapt
     }
 
     /**
-     * Get variantOk.
+     * Get schoolsocialgroup.
      *
-     * @return \AppBundle\Entity\Medialibrary|null
+     * @return \AppBundle\Entity\Schoolsocialgroup|null
      */
-    public function getVariantOk()
+    public function getSchoolsocialgroup()
     {
-        return $this->variantOk;
+        return $this->schoolsocialgroup;
+    }
+
+    /**
+     * Set schoolsocialgroup.
+     *
+     * @param \AppBundle\Entity\Schoolsocialgroup|null $schoolsocialgroup
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setSchoolsocialgroup(\AppBundle\Entity\Schoolsocialgroup $schoolsocialgroup = null)
+    {
+        $this->schoolsocialgroup = $schoolsocialgroup;
+
+        return $this;
     }
 }

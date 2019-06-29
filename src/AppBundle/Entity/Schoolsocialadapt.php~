@@ -78,5 +78,193 @@ class Schoolsocialadapt
      */
     private $variantOk;
 
+    /**
+     * @var Schoolsocialgroup
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Schoolsocialgroup", inversedBy="tests")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_group", referencedColumnName="id")
+     * })
+     */
+    private $schoolsocialgroup;
 
+
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set question.
+     *
+     * @param string $question
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question.
+     *
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * Set iditem.
+     *
+     * @param \AppBundle\Entity\Schoolitems|null $iditem
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setIditem(\AppBundle\Entity\Schoolitems $iditem = null)
+    {
+        $this->iditem = $iditem;
+
+        return $this;
+    }
+
+    /**
+     * Get iditem.
+     *
+     * @return \AppBundle\Entity\Schoolitems|null
+     */
+    public function getIditem()
+    {
+        return $this->iditem;
+    }
+
+    /**
+     * Set variantNo2.
+     *
+     * @param \AppBundle\Entity\Medialibrary|null $variantNo2
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setVariantNo2(\AppBundle\Entity\Medialibrary $variantNo2 = null)
+    {
+        $this->variantNo2 = $variantNo2;
+
+        return $this;
+    }
+
+    /**
+     * Get variantNo2.
+     *
+     * @return \AppBundle\Entity\Medialibrary|null
+     */
+    public function getVariantNo2()
+    {
+        return $this->variantNo2;
+    }
+
+    /**
+     * Set variantNo3.
+     *
+     * @param \AppBundle\Entity\Medialibrary|null $variantNo3
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setVariantNo3(\AppBundle\Entity\Medialibrary $variantNo3 = null)
+    {
+        $this->variantNo3 = $variantNo3;
+
+        return $this;
+    }
+
+    /**
+     * Get variantNo3.
+     *
+     * @return \AppBundle\Entity\Medialibrary|null
+     */
+    public function getVariantNo3()
+    {
+        return $this->variantNo3;
+    }
+
+    /**
+     * Set variantNo1.
+     *
+     * @param \AppBundle\Entity\Medialibrary|null $variantNo1
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setVariantNo1(\AppBundle\Entity\Medialibrary $variantNo1 = null)
+    {
+        $this->variantNo1 = $variantNo1;
+
+        return $this;
+    }
+
+    /**
+     * Get variantNo1.
+     *
+     * @return \AppBundle\Entity\Medialibrary|null
+     */
+    public function getVariantNo1()
+    {
+        return $this->variantNo1;
+    }
+
+    /**
+     * Set variantOk.
+     *
+     * @param \AppBundle\Entity\Medialibrary|null $variantOk
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setVariantOk(\AppBundle\Entity\Medialibrary $variantOk = null)
+    {
+        $this->variantOk = $variantOk;
+
+        return $this;
+    }
+
+    /**
+     * Get variantOk.
+     *
+     * @return \AppBundle\Entity\Medialibrary|null
+     */
+    public function getVariantOk()
+    {
+        return $this->variantOk;
+    }
+
+    /**
+     * Set schoolsocialgroup.
+     *
+     * @param \AppBundle\Entity\Schoolsocialgroup|null $schoolsocialgroup
+     *
+     * @return Schoolsocialadapt
+     */
+    public function setSchoolsocialgroup(\AppBundle\Entity\Schoolsocialgroup $schoolsocialgroup = null)
+    {
+        $this->schoolsocialgroup = $schoolsocialgroup;
+
+        return $this;
+    }
+
+    /**
+     * Get schoolsocialgroup.
+     *
+     * @return \AppBundle\Entity\Schoolsocialgroup|null
+     */
+    public function getSchoolsocialgroup()
+    {
+        return $this->schoolsocialgroup;
+    }
 }

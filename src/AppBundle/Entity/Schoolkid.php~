@@ -46,4 +46,86 @@ class Schoolkid
     private $idclass;
 
 
+
+    /**
+     * Get id.
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fio.
+     *
+     * @param string $fio
+     *
+     * @return Schoolkid
+     */
+    public function setFio($fio)
+    {
+        $this->fio = $fio;
+
+        return $this;
+    }
+
+    /**
+     * Get fio.
+     *
+     * @return string
+     */
+    public function getFio()
+    {
+        return $this->fio;
+    }
+
+    /**
+     * Set dr.
+     *
+     * @param string $dr
+     *
+     * @return Schoolkid
+     */
+    public function setDr($dr)
+    {
+        $this->dr = $dr;
+
+        return $this;
+    }
+
+    /**
+     * Get dr.
+     *
+     * @return string
+     */
+    public function getDr()
+    {
+        return $this->dr;
+    }
+
+    /**
+     * Set idclass.
+     *
+     * @param \AppBundle\Entity\Schoolclass|null $idclass
+     *
+     * @return Schoolkid
+     */
+    public function setIdclass(\AppBundle\Entity\Schoolclass $idclass = null)
+    {
+        $this->idclass = $idclass;
+
+        return $this;
+    }
+
+    /**
+     * Get idclass.
+     *
+     * @return \AppBundle\Entity\Schoolclass|null
+     */
+    public function getIdclass()
+    {
+        return $this->idclass;
+    }
 }

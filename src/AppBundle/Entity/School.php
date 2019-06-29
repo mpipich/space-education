@@ -43,7 +43,6 @@ class School
     private $address;
 
 
-
     /**
      * Get id.
      *
@@ -52,6 +51,16 @@ class School
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -69,13 +78,13 @@ class School
     }
 
     /**
-     * Get name.
+     * Get type.
      *
      * @return string
      */
-    public function getName()
+    public function getType()
     {
-        return $this->name;
+        return $this->type;
     }
 
     /**
@@ -93,13 +102,13 @@ class School
     }
 
     /**
-     * Get type.
+     * Get address.
      *
      * @return string
      */
-    public function getType()
+    public function getAddress()
     {
-        return $this->type;
+        return $this->address;
     }
 
     /**
@@ -114,15 +123,5 @@ class School
         $this->address = $address;
 
         return $this;
-    }
-
-    /**
-     * Get address.
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
     }
 }

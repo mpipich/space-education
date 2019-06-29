@@ -54,6 +54,27 @@ class Schoolclass
     private $iditem;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Dictation", inversedBy="idclass")
+     * @ORM\JoinTable(name="schooldictantplan",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idClass", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="IdDictant", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idDictant;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Schoolkid",mappedBy="idclass", fetch="EAGER")
+     */
+    private $kids;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -73,6 +94,16 @@ class Schoolclass
     }
 
     /**
+     * Get classnumber.
+     *
+     * @return string
+     */
+    public function getClassnumber()
+    {
+        return $this->classnumber;
+    }
+
+    /**
      * Set classnumber.
      *
      * @param string $classnumber
@@ -87,13 +118,13 @@ class Schoolclass
     }
 
     /**
-     * Get classnumber.
+     * Get schoolid.
      *
-     * @return string
+     * @return \AppBundle\Entity\School|null
      */
-    public function getClassnumber()
+    public function getSchoolid()
     {
-        return $this->classnumber;
+        return $this->schoolid;
     }
 
     /**
@@ -108,16 +139,6 @@ class Schoolclass
         $this->schoolid = $schoolid;
 
         return $this;
-    }
-
-    /**
-     * Get schoolid.
-     *
-     * @return \AppBundle\Entity\School|null
-     */
-    public function getSchoolid()
-    {
-        return $this->schoolid;
     }
 
     /**
@@ -154,5 +175,77 @@ class Schoolclass
     public function getIditem()
     {
         return $this->iditem;
+    }
+
+    /**
+     * Add idDictant.
+     *
+     * @param \AppBundle\Entity\Dictation $idDictant
+     *
+     * @return Schoolclass
+     */
+    public function addIdDictant(\AppBundle\Entity\Dictation $idDictant)
+    {
+        $this->idDictant[] = $idDictant;
+
+        return $this;
+    }
+
+    /**
+     * Remove idDictant.
+     *
+     * @param \AppBundle\Entity\Dictation $idDictant
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeIdDictant(\AppBundle\Entity\Dictation $idDictant)
+    {
+        return $this->idDictant->removeElement($idDictant);
+    }
+
+    /**
+     * Get idDictant.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdDictant()
+    {
+        return $this->idDictant;
+    }
+
+    /**
+     * Add kid.
+     *
+     * @param \AppBundle\Entity\Schoolkid $kid
+     *
+     * @return Schoolclass
+     */
+    public function addKid(\AppBundle\Entity\Schoolkid $kid)
+    {
+        $this->kids[] = $kid;
+
+        return $this;
+    }
+
+    /**
+     * Remove kid.
+     *
+     * @param \AppBundle\Entity\Schoolkid $kid
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeKid(\AppBundle\Entity\Schoolkid $kid)
+    {
+        return $this->kids->removeElement($kid);
+    }
+
+    /**
+     * Get kids.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKids()
+    {
+        return $this->kids;
     }
 }

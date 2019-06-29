@@ -63,7 +63,6 @@ class Schoolresult
     private $idkid;
 
 
-
     /**
      * Get id.
      *
@@ -72,6 +71,16 @@ class Schoolresult
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get ocenka.
+     *
+     * @return int|null
+     */
+    public function getOcenka()
+    {
+        return $this->ocenka;
     }
 
     /**
@@ -89,13 +98,13 @@ class Schoolresult
     }
 
     /**
-     * Get ocenka.
+     * Get countfail.
      *
-     * @return int|null
+     * @return int
      */
-    public function getOcenka()
+    public function getCountfail()
     {
-        return $this->ocenka;
+        return $this->countfail;
     }
 
     /**
@@ -113,13 +122,13 @@ class Schoolresult
     }
 
     /**
-     * Get countfail.
+     * Get description.
      *
-     * @return int
+     * @return string|null
      */
-    public function getCountfail()
+    public function getDescription()
     {
-        return $this->countfail;
+        return $this->description;
     }
 
     /**
@@ -137,13 +146,13 @@ class Schoolresult
     }
 
     /**
-     * Get description.
+     * Get iditem.
      *
-     * @return string|null
+     * @return \AppBundle\Entity\Schoolitems|null
      */
-    public function getDescription()
+    public function getIditem()
     {
-        return $this->description;
+        return $this->iditem;
     }
 
     /**
@@ -161,13 +170,13 @@ class Schoolresult
     }
 
     /**
-     * Get iditem.
+     * Get idkid.
      *
-     * @return \AppBundle\Entity\Schoolitems|null
+     * @return \AppBundle\Entity\Schoolkid|null
      */
-    public function getIditem()
+    public function getIdkid()
     {
-        return $this->iditem;
+        return $this->idkid;
     }
 
     /**
@@ -182,15 +191,5 @@ class Schoolresult
         $this->idkid = $idkid;
 
         return $this;
-    }
-
-    /**
-     * Get idkid.
-     *
-     * @return \AppBundle\Entity\Schoolkid|null
-     */
-    public function getIdkid()
-    {
-        return $this->idkid;
     }
 }

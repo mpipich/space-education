@@ -55,7 +55,20 @@ class Dictation
      */
     private $iditem;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Schoolclass", mappedBy="idDictant")
+     */
+    private $idclass;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idclass = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id.
@@ -65,6 +78,16 @@ class Dictation
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -82,13 +105,13 @@ class Dictation
     }
 
     /**
-     * Get name.
+     * Get dictationtext.
      *
      * @return string
      */
-    public function getName()
+    public function getDictationtext()
     {
-        return $this->name;
+        return $this->dictationtext;
     }
 
     /**
@@ -106,13 +129,13 @@ class Dictation
     }
 
     /**
-     * Get dictationtext.
+     * Get idaudio.
      *
-     * @return string
+     * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getDictationtext()
+    public function getIdaudio()
     {
-        return $this->dictationtext;
+        return $this->idaudio;
     }
 
     /**
@@ -130,13 +153,13 @@ class Dictation
     }
 
     /**
-     * Get idaudio.
+     * Get iditem.
      *
-     * @return \AppBundle\Entity\Medialibrary|null
+     * @return \AppBundle\Entity\Schoolitems|null
      */
-    public function getIdaudio()
+    public function getIditem()
     {
-        return $this->idaudio;
+        return $this->iditem;
     }
 
     /**
@@ -154,12 +177,38 @@ class Dictation
     }
 
     /**
-     * Get iditem.
+     * Add idclass.
      *
-     * @return \AppBundle\Entity\Schoolitems|null
+     * @param \AppBundle\Entity\Schoolclass $idclass
+     *
+     * @return Dictation
      */
-    public function getIditem()
+    public function addIdclass(\AppBundle\Entity\Schoolclass $idclass)
     {
-        return $this->iditem;
+        $this->idclass[] = $idclass;
+
+        return $this;
+    }
+
+    /**
+     * Remove idclass.
+     *
+     * @param \AppBundle\Entity\Schoolclass $idclass
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeIdclass(\AppBundle\Entity\Schoolclass $idclass)
+    {
+        return $this->idclass->removeElement($idclass);
+    }
+
+    /**
+     * Get idclass.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdclass()
+    {
+        return $this->idclass;
     }
 }

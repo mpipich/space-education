@@ -36,7 +36,6 @@ class Medialibrary
     private $name;
 
 
-
     /**
      * Get id.
      *
@@ -45,6 +44,16 @@ class Medialibrary
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get url.
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     /**
@@ -62,13 +71,13 @@ class Medialibrary
     }
 
     /**
-     * Get url.
+     * Get name.
      *
      * @return string
      */
-    public function getUrl()
+    public function getName()
     {
-        return $this->url;
+        return $this->name;
     }
 
     /**
@@ -83,15 +92,5 @@ class Medialibrary
         $this->name = $name;
 
         return $this;
-    }
-
-    /**
-     * Get name.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 }
