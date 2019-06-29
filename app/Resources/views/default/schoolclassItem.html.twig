@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('teacher') }}">
+                        <svg class="glyph stroked home">
+                            <use xlink:href="#stroked-home"></use>
+                        </svg>
+                    </a></li>
+                <li class="active">Группы учеников</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{ group_item.classnumber }}</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-teal panel-widget">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left">
+                            <svg class="glyph stroked male-user">
+                                <use xlink:href="#stroked-male-user"></use>
+                            </svg>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">{{ group_item.kids|length }}</div>
+                            <div class="text-muted">Учеников в группе</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+        {#<div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>New Orders</h4>
+                        <div class="easypiechart" id="easypiechart-blue" data-percent="92" ><span class="percent">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Comments</h4>
+                        <div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>New Users</h4>
+                        <div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Visitors</h4>
+                        <div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>#}<!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Список учеников</div>
+                    <div class="panel-body">
+                        <table class="table" data-toggle="table" data-show-refresh="true" data-show-toggle="true"
+                               data-show-columns="true" data-search="true" data-select-item-name="toolbar1"
+                               data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                            <thead>
+                            <tr>
+                                <th data-field="state" data-checkbox="true">Идентификатор</th>
+                                <th data-field="id" data-sortable="true">ФИО</th>
+                                <th data-field="name" data-sortable="true">Дата рождения</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for kid in group_item.kids %}
+                                <tr>
+                                    <td>
+                                        {{ kid.id }}
+                                    </td>
+                                    <td>
+                                        {{ kid.fio }}
+                                    </td>
+                                    <td>
+                                        {{ kid.dr }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+
+        {#<div class="col-md-4">
+
+            <div class="panel panel-blue">
+                <div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>Группы учеников</div>
+                <div class="panel-body">
+                    <ul class="todo-list">
+                        {%  for class in schoolclass  %}
+                            <li class="todo-list-item">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="checkbox" value="{{ class.id }}"/>
+                                    <label for="checkbox">{{ class.classnumber }}</label>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <button class="btn btn-primary btn-md" id="btn-todo">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>#}<!--/.col-->
+    </div><!--/.row-->
+    </div>    <!--/.main-->
+
+
+{% endblock %}
