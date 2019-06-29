@@ -1,0 +1,59 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Dictation
+ *
+ * @ORM\Table(name="dictation", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})}, indexes={@ORM\Index(name="FK_dictation_idItem", columns={"idItem"}), @ORM\Index(name="FK_dictation_idAudio", columns={"idAudio"})})
+ * @ORM\Entity
+ */
+class Dictation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false, options={"comment"="Идентификатор диктанта"})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dictationtext", type="text", length=65535, nullable=false)
+     */
+    private $dictationtext;
+
+    /**
+     * @var \Medialibrary
+     *
+     * @ORM\ManyToOne(targetEntity="Medialibrary")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idAudio", referencedColumnName="id")
+     * })
+     */
+    private $idaudio;
+
+    /**
+     * @var \Schoolitems
+     *
+     * @ORM\ManyToOne(targetEntity="Schoolitems")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idItem", referencedColumnName="id")
+     * })
+     */
+    private $iditem;
+
+
+}

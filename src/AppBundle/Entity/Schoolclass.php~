@@ -1,0 +1,64 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Schoolclass
+ *
+ * @ORM\Table(name="schoolclass", uniqueConstraints={@ORM\UniqueConstraint(name="classnumber", columns={"classnumber"}), @ORM\UniqueConstraint(name="id", columns={"id"})}, indexes={@ORM\Index(name="FK_schoolclass_schoolid", columns={"schoolid"})})
+ * @ORM\Entity
+ */
+class Schoolclass
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="classnumber", type="string", length=255, nullable=false)
+     */
+    private $classnumber;
+
+    /**
+     * @var \School
+     *
+     * @ORM\ManyToOne(targetEntity="School")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="schoolid", referencedColumnName="id")
+     * })
+     */
+    private $schoolid;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Schoolitems", inversedBy="idclass")
+     * @ORM\JoinTable(name="schoolplan",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idClass", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idItem", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $iditem;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->iditem = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

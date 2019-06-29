@@ -1,0 +1,42 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Schoolteacher
+ *
+ * @ORM\Table(name="schoolteacher", uniqueConstraints={@ORM\UniqueConstraint(name="id", columns={"id"})}, indexes={@ORM\Index(name="FK_schoolteacher_idSchool", columns={"idSchool"})})
+ * @ORM\Entity
+ */
+class Schoolteacher
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fio", type="string", length=255, nullable=false)
+     */
+    private $fio;
+
+    /**
+     * @var \School
+     *
+     * @ORM\ManyToOne(targetEntity="School")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idSchool", referencedColumnName="id")
+     * })
+     */
+    private $idschool;
+
+
+}
