@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="{{ path('teacher') }}">
+                        <svg class="glyph stroked home">
+                            <use xlink:href="#stroked-home"></use>
+                        </svg>
+                    </a></li>
+                <li class="active">Русский язык</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{ dictant_item.name }}</h1>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-blue panel-widget ">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left" style="background-color: #009846">
+                            <span class="glyphicon glyphicon-thumbs-up" style="font-size: 48px"
+                                  aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">120</div>
+                            <div class="text-muted">Успешных прохождений</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <div class="panel panel-red panel-widget">
+                    <div class="row no-padding">
+                        <div class="col-sm-3 col-lg-5 widget-left">
+                            <span class="glyphicon glyphicon-thumbs-down" style="font-size: 48px"
+                                  aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-9 col-lg-7 widget-right">
+                            <div class="large">5</div>
+                            <div class="text-muted">Неудачных прохождений</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Успешных прохождений</h4>
+                        <div class="easypiechart" id="easypiechart-teal" data-percent="95%"><span
+                                    class="percent">95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body easypiechart-panel">
+                        <h4>Неудачных прохождений</h4>
+                        <div class="easypiechart" id="easypiechart-red" data-percent="5"><span class="percent">5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default chat">
+                    <div class="panel-heading" id="accordion">
+                        <span class="glyphicon glyphicon-music"  aria-hidden="true"></span>
+                        Аудиозапись диктанта
+
+                    </div>
+                    <audio controls style="width: 100%">
+                        <source src="{{ asset('/uploads/') }}{{ dictant_item.idaudio.url }}" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="panel panel-default chat">
+                    <div class="panel-heading" id="accordion">
+                        <span class="glyphicon glyphicon-font"  aria-hidden="true"></span>
+                        Текст диктанта
+                    </div>
+                    <div class="panel-body">
+                        <textarea style="width: 100%; height: 95%">{{ dictant_item.dictationtext }}</textarea>
+                    </div>
+
+                    <div class="panel-footer">
+                        <button class="btn btn-success btn-md" id="btn-chat">Сохранить</button>
+                    </div>
+                </div>
+
+
+            </div><!--/.col-->
+
+            <div class="col-md-4">
+
+                <div class="panel panel-blue">
+                    <div class="panel-heading dark-overlay">
+                        <span class="glyphicon glyphicon-user"  aria-hidden="true"></span>
+                        Группы учеников
+                    </div>
+                    <div class="panel-body">
+                        <ul class="todo-list">
+                            {% for class in schoolclass %}
+                                <li class="todo-list-item">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="checkbox" value="{{ class.id }}"/>
+                                        <label for="checkbox">{{ class.classnumber }}</label>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <button class="btn btn-primary btn-md" id="btn-todo">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!--/.col-->
+        </div><!--/.row-->
+    </div>    <!--/.main-->
+
+
+{% endblock %}
