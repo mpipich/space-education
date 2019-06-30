@@ -10,17 +10,20 @@
             <div class="variant-tests">
                 <form method="post" id="formVariant" action="{{ path('user_adaptation_test', {'question': thisQuestion.id, 'id': idTest}) }}">
 
-                    <label for="var-{{ thisQuestion.variantNo2.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo2.url }}"></label>
-                    <input type="radio" id="var-{{ thisQuestion.variantNo2.id }}" name="result" value="{{ thisQuestion.variantNo2.id }}">
+                    {% if(thisQuestion.variantNo2) %}
+                        <label for="var-{{ thisQuestion.variantNo2.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo2.url }}"></label>
+                        <input type="radio" id="var-{{ thisQuestion.variantNo2.id }}" name="result" value="{{ thisQuestion.variantNo2.id }}">
+                    {% endif %}
 
                     <label for="var-{{ thisQuestion.variantNo1.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo1.url }}"></label>
                     <input type="radio" id="var-{{ thisQuestion.variantNo1.id }}" name="result" value="{{ thisQuestion.variantNo1.id }}">
 
                     <label for="var-{{ thisQuestion.variantOk.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantOk.url }}"></label>
                     <input type="radio" id="var-{{ thisQuestion.variantOk.id }}" name="result" value="{{ thisQuestion.variantOk.id }}">
-
-                    <label for="var-{{ thisQuestion.variantNo3.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo3.url }}"></label>
-                    <input type="radio" id="var-{{ thisQuestion.variantNo3.id }}" name="result" value="{{ thisQuestion.variantNo3.id }}">
+                    {% if(thisQuestion.variantNo3) %}
+                        <label for="var-{{ thisQuestion.variantNo3.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo3.url }}"></label>
+                        <input type="radio" id="var-{{ thisQuestion.variantNo3.id }}" name="result" value="{{ thisQuestion.variantNo3.id }}">
+                    {% endif %}
 
                     <input type="submit">
                 </form>
