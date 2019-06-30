@@ -1,0 +1,318 @@
+/*CSS Reset */
+* {
+	box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of Eric Meyer's CSS Reset */
+
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
+}
+body {
+	font: 12px/18px Arial, sans-serif;
+	height: 100%;
+	background-color: #124abb;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}
+
+.wrapper {
+	width: 100%;
+	min-width: 420px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	min-height: 3rem;
+	background-color: #ffdd00;
+	display: flex;
+	flex-flow: row wrap;
+	padding: 0 .5rem;
+}
+.logo {
+	flex: 1 1 10rem;
+}
+.logo img {
+	width: 3rem;
+	margin-right: 1rem;
+	float: left;
+}
+.logoSign {
+	font-size: 1rem;
+	padding-top: .5rem;
+}
+.logoSign p {
+	font-weight: bold;
+	letter-spacing: 3.5px;
+}
+.siteName, .user {
+	flex: 1 1 1rem;
+	display: flex;
+	flex: row no-wrap;
+	align-items:center;
+	font-weight: bold;
+	color: #fff;
+}
+
+.siteName {
+	justify-content: center;
+}
+.user {
+	justify-content: flex-end;
+}
+.user img {
+	width:2.5rem;
+	margin-left: .5rem;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+	padding: 0 0 100px;
+	display: flax;
+	flex: row wrap;
+
+}
+.content div {
+	max-width: 800px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+
+}
+.content div img {
+	flex: 1 1 200px;
+	margin: 2rem 2rem 0 2rem;
+	max-width: 200px;
+	transition-property: transform;
+	transition-duration: .5s;
+	box-shadow: 0 0 0 0 #fff;
+
+}
+.content div img:hover {
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+	border-radius: 6px;
+	box-shadow: 0 0 5px 2px lightgray;
+}
+/* ----------------------- */
+.content-dict {
+	text-align: center;
+}
+.dict {
+	width:80%;
+	background-color: #fff;
+	margin: 1rem auto;
+	padding-bottom: 1rem;
+}
+form {
+	width:100%;
+	text-align: center;
+}
+textarea {
+	width: 96%;
+	text-transform: none;
+	font-size: 1.5rem;
+	border:none;
+}
+input {
+	padding: .5rem 2rem;
+	transition-property: transform;
+	transition-duration: .5s;
+}
+input:hover {
+	background: lightgray;
+	border-radius: 5px;
+	border: 1px solid lightblue;
+	padding: .75rem 2.4rem;
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+audio {
+	width: 100%;
+}
+h2 {
+	color: #fff;
+	margin: 2rem 1rem;
+	font-weight: bold;
+}
+.bg_only_social h2 {
+	color: #124abb;
+	margin: 0;
+	padding: 2rem 1rem;
+	font-weight: bold;
+	background-color: #fff;
+}
+.bg_only_social {
+	background-image: url(../img/fon_social.png);
+}
+.err-dict {
+	padding: .5rem;
+	color: red;
+}
+.err audio {
+	visibility: hidden;
+}
+.social {
+	height: 100%;
+	line-height: 3rem;
+	padding: 1rem;
+}
+.social div {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+.social div div{
+	flex: 1 1 350px;
+}
+.social div div img {
+	transition-property: transform;
+	transition-duration: .5s;
+	transition-property: border;
+	transition-duration: .5s;
+	height: 8rem;
+	
+}
+.social div div img:hover {
+	border: 1rem solid #124abb;
+	border-radius: 1rem;
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+h3 {
+	font-size: 3rem;
+	color: blue;
+	font-weight: bold;
+}
+.bg_only_social {
+	background-color: #fff;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	margin: -3.6rem auto 0;
+	min-width: 420px;
+	min-height: 3rem;
+	position: relative;
+	display: flex;
+	flex: row no-wrap;
+	padding: .5rem 1rem 0 5rem;
+	background-color: #124abb;
+}
+.homeButton {
+	flex: 1 1 1rem;
+	
+}
+.bigFooter {
+	flex: 1 1 1rem;
+}
+.smallFooter {
+	flex: 1 1 1rem;
+}
+footer img {
+	width: 3rem;
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	transition-property: transform;
+	transition-duration: .5s;
+
+	
+}
+footer img:hover {
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.bigFooter img {
+	float:right;
+	margin-left: auto;
+	
+}
+.smallFooter img{
+	margin-left:5rem;
+}
+@media (max-width: 550px) {
+	.textarea {
+		max-height: 400px;
+	}
+	.social {
+		padding: 0;
+	}
+	h2 {
+		margin: 1rem;
+	}
+	h3 {
+		font-size:1.5rem;
+	}
+	 h1, .user {
+		 font-size: 1rem;
+	 }
+}
+.variant-tests label{
+	cursor: pointer;
+}
+.variant-tests input{
+	visibility: hidden;
+}
+
+.variant-tests label img{
+	width: 180px;
+}

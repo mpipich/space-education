@@ -3,39 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-
-    <!--Icons-->
-    <script src="{{ asset('js/lumino.glyphs.js') }}"></script>
-
-    <!--[if lt IE 9]>
-    <script src="{{ asset('js/html5shiv.js') }}"></script>
-    <script src="{{ asset('js/respond.min.js')}}"></script>
-    <![endif]-->
-    <title>Панель управления преподавателя</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
+    <script type="text/javascript" src="{{  asset('/js/jquery-3.4.1.min.js')}}"></script>
 </head>
 <body>
-{#<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #ffdd00; min-height: 90px">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/user/main"><img alt="Brand" src="{{ asset('/img/logo.png') }}" height="70px"> <span style="color: #000; font-weight: bold">Личный кабинет ученика</span></a>
-            <ul class="user-menu">
-                <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <svg class="glyph stroked male-user">
-                            <use xlink:href="#stroked-male-user"></use>
-                        </svg>
-                        Иванова Нина Петровна <span class="caret"></span></a>
-                </li>
-            </ul>
+<div class="wrapper">
+    <header class="header">
+        <div class="logo">
+            <a href="{{ path('user_main') }}" style="text-decoration: none; color: #000"><img src="{{ asset('img/logo.png')}}"><div class="logoSign"><p>SPACE</p>EDUCATION</div></a>
         </div>
-
-    </div><!-- /.container-fluid -->
-</nav>#}
+        <div class="siteName"><h1>МБОУ СОШ №14<h1></div>
+        <div class="user"><span>Петров В.И</span><img class="userIcon" src="{{ asset('img/userIconDemo.png')}}"></div>
+    </header><!-- .header-->
 {% block body %}{% endblock %}
+</div><!-- .wrapper -->
+
+<footer class="footer">
+    <div class="homeButton"></div>
+    <div class="bigFooter"><img src="{{ asset('img/del.png')}}"></div>
+    <div class="smallFooter"><img src="{{ asset('img/add.png')}}" onclick="document.getElementById('text').className = 'big-size';"></div>
+</footer><!-- .footer -->
 {% block javascripts %}{% endblock %}
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 </html>

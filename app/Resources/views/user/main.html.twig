@@ -1,4 +1,17 @@
 {% extends 'basemain.html.twig' %}
 {% block body %}
 
+
+        <main class="content">
+            <div>
+                <a href="{{ path('user_dictant') }}"><img src="{{ asset('img/imgThemeItem5.png')}}"></a>
+                <a href="#"><img src="{{ asset('img/imgThemeItem3.png')}}"></a>
+                <a href="#"><img src="{{ asset('img/imgThemeItem2.png')}}"></a>
+                <a href="{{ path('user_adaptation_test', {'id':1}) }}"><img src="{{ asset('img/imgThemeItem11.png')}}"></a>
+                <a href="#"><img src="{{ asset('img/imgThemeItem4.png')}}"></a>
+                <a href="#"><img src="{{ asset('img/imgThemeItem6.png')}}"></a>
+            </div>
+        </main><!-- .content -->
+
+
 {% endblock %}

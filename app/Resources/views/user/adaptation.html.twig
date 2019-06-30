@@ -1,0 +1,39 @@
+{% extends 'basemain.html.twig' %}
+{% block body %}
+    <main class="content-dict">
+        <h2>Мир вокруг нас</h2>
+        <div class="social" style="background-color: #fff">
+
+            <p>{{ thisQuestion.question }}</p>
+            {#<p>1/30</p>#}
+            {#<h3>направо</h3>#}
+            <div class="variant-tests">
+                <form method="post" id="formVariant" action="{{ path('user_adaptation_test', {'question': thisQuestion.id, 'id': idTest}) }}">
+
+                    <label for="var-{{ thisQuestion.variantNo2.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo2.url }}"></label>
+                    <input type="radio" id="var-{{ thisQuestion.variantNo2.id }}" name="result" value="{{ thisQuestion.variantNo2.id }}">
+
+                    <label for="var-{{ thisQuestion.variantNo1.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo1.url }}"></label>
+                    <input type="radio" id="var-{{ thisQuestion.variantNo1.id }}" name="result" value="{{ thisQuestion.variantNo1.id }}">
+
+                    <label for="var-{{ thisQuestion.variantOk.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantOk.url }}"></label>
+                    <input type="radio" id="var-{{ thisQuestion.variantOk.id }}" name="result" value="{{ thisQuestion.variantOk.id }}">
+
+                    <label for="var-{{ thisQuestion.variantNo3.id }}"><img width="100px" src="/uploads/{{ thisQuestion.variantNo3.url }}"></label>
+                    <input type="radio" id="var-{{ thisQuestion.variantNo3.id }}" name="result" value="{{ thisQuestion.variantNo3.id }}">
+
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+        <script>
+            $( function() {
+                $("#formVariant").change(function ($el) {
+                    $(this).submit();
+                });
+            });
+        </script>
+    </main>
+
+
+{% endblock %}

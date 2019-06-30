@@ -1,0 +1,29 @@
+{% extends 'basemain.html.twig' %}
+{% block body %}
+    <main class="content-dict err">
+        <h2>
+            ДИКТАНТ ПО РУССКОМУ ЯЗЫКУ
+        </h2>
+        <div class="dict">
+            <div>
+                {% if(countError == 0 and retUserDictantText|length > 0) %}
+                    <p style="padding: 30px; color: green; font-weight: bold">Поздравляем! Вы написали диктант без единой ошибки!</p>
+                {% elseif(retUserDictantText|length == 0) %}
+                    <p style="padding: 30px; color: red; font-weight: bold">Вы не заполнили текст диктанта!</p>
+                {% else %}
+                    <p style="padding: 30px; color: red; font-weight: bold">Вы допустили {{ countError }} ошибок в диктанте</p>
+                    <p style="text-transform: none; line-height: 40px;">{{ fails|raw }}</p>
+                {% endif %}
+            </div>
+
+            <a href="{{ path('user_main') }}" style="padding: 20px 50px;
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    background: #ffda00;
+    color: #000;
+    border-radius: 10px;
+    margin-top: 30px;">ОК!</a>
+        </div>
+    </main>
+{% endblock %}
