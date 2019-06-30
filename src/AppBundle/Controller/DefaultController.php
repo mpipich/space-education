@@ -28,10 +28,19 @@ class DefaultController extends Controller
     public function teacherAction(Request $request)
     {
         $dictants = $this->getDoctrine()->getManager()->getRepository('AppBundle:Dictation')->findAll();
+        $class = $this->getDoctrine()->getManager()->getRepository('AppBundle:Schoolclass')->findAll();
+        $groupAdapt = $this->getDoctrine()->getManager()->getRepository('AppBundle:Schoolsocialgroup')->findAll();
+        $gruopKid = $this->getDoctrine()->getManager()->getRepository('AppBundle:Schoolclass')->findAll();
+        $dictants = $this->getDoctrine()->getManager()->getRepository('AppBundle:Dictation')->findAll();
+        $kids = $this->getDoctrine()->getRepository('AppBundle:Schoolkid')->findAll();
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
             'dictant' => $dictants,
+            'schoolclass' => $class,
+            'groupAdapt' => $groupAdapt,
+            'gruopKid' => $gruopKid,
+            'kids' => $kids,
         ]);
     }
 
