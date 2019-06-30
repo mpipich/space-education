@@ -63,6 +63,14 @@ class Dictation
     private $idclass;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idclass = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * Get id.
      *
      * @return int
@@ -70,6 +78,16 @@ class Dictation
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -87,13 +105,13 @@ class Dictation
     }
 
     /**
-     * Get name.
+     * Get dictationtext.
      *
      * @return string
      */
-    public function getName()
+    public function getDictationtext()
     {
-        return $this->name;
+        return $this->dictationtext;
     }
 
     /**
@@ -111,13 +129,13 @@ class Dictation
     }
 
     /**
-     * Get dictationtext.
+     * Get idaudio.
      *
-     * @return string
+     * @return \AppBundle\Entity\Medialibrary|null
      */
-    public function getDictationtext()
+    public function getIdaudio()
     {
-        return $this->dictationtext;
+        return $this->idaudio;
     }
 
     /**
@@ -135,13 +153,13 @@ class Dictation
     }
 
     /**
-     * Get idaudio.
+     * Get iditem.
      *
-     * @return \AppBundle\Entity\Medialibrary|null
+     * @return \AppBundle\Entity\Schoolitems|null
      */
-    public function getIdaudio()
+    public function getIditem()
     {
-        return $this->idaudio;
+        return $this->iditem;
     }
 
     /**
@@ -156,23 +174,6 @@ class Dictation
         $this->iditem = $iditem;
 
         return $this;
-    }
-
-    /**
-     * Get iditem.
-     *
-     * @return \AppBundle\Entity\Schoolitems|null
-     */
-    public function getIditem()
-    {
-        return $this->iditem;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->idclass = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

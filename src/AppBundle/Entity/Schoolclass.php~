@@ -94,6 +94,16 @@ class Schoolclass
     }
 
     /**
+     * Get classnumber.
+     *
+     * @return string
+     */
+    public function getClassnumber()
+    {
+        return $this->classnumber;
+    }
+
+    /**
      * Set classnumber.
      *
      * @param string $classnumber
@@ -108,13 +118,13 @@ class Schoolclass
     }
 
     /**
-     * Get classnumber.
+     * Get schoolid.
      *
-     * @return string
+     * @return \AppBundle\Entity\School|null
      */
-    public function getClassnumber()
+    public function getSchoolid()
     {
-        return $this->classnumber;
+        return $this->schoolid;
     }
 
     /**
@@ -129,16 +139,6 @@ class Schoolclass
         $this->schoolid = $schoolid;
 
         return $this;
-    }
-
-    /**
-     * Get schoolid.
-     *
-     * @return \AppBundle\Entity\School|null
-     */
-    public function getSchoolid()
-    {
-        return $this->schoolid;
     }
 
     /**
@@ -211,5 +211,41 @@ class Schoolclass
     public function getIdDictant()
     {
         return $this->idDictant;
+    }
+
+    /**
+     * Add kid.
+     *
+     * @param \AppBundle\Entity\Schoolkid $kid
+     *
+     * @return Schoolclass
+     */
+    public function addKid(\AppBundle\Entity\Schoolkid $kid)
+    {
+        $this->kids[] = $kid;
+
+        return $this;
+    }
+
+    /**
+     * Remove kid.
+     *
+     * @param \AppBundle\Entity\Schoolkid $kid
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeKid(\AppBundle\Entity\Schoolkid $kid)
+    {
+        return $this->kids->removeElement($kid);
+    }
+
+    /**
+     * Get kids.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKids()
+    {
+        return $this->kids;
     }
 }

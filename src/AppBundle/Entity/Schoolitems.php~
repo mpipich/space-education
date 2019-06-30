@@ -65,6 +65,16 @@ class Schoolitems
     }
 
     /**
+     * Get name.
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set name.
      *
      * @param string $name
@@ -79,13 +89,13 @@ class Schoolitems
     }
 
     /**
-     * Get name.
+     * Get idteacher.
      *
-     * @return string
+     * @return \AppBundle\Entity\Schoolteacher|null
      */
-    public function getName()
+    public function getIdteacher()
     {
-        return $this->name;
+        return $this->idteacher;
     }
 
     /**
@@ -100,16 +110,6 @@ class Schoolitems
         $this->idteacher = $idteacher;
 
         return $this;
-    }
-
-    /**
-     * Get idteacher.
-     *
-     * @return \AppBundle\Entity\Schoolteacher|null
-     */
-    public function getIdteacher()
-    {
-        return $this->idteacher;
     }
 
     /**

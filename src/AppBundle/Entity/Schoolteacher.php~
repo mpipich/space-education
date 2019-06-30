@@ -39,7 +39,6 @@ class Schoolteacher
     private $idschool;
 
 
-
     /**
      * Get id.
      *
@@ -48,6 +47,16 @@ class Schoolteacher
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get fio.
+     *
+     * @return string
+     */
+    public function getFio()
+    {
+        return $this->fio;
     }
 
     /**
@@ -65,13 +74,13 @@ class Schoolteacher
     }
 
     /**
-     * Get fio.
+     * Get idschool.
      *
-     * @return string
+     * @return \AppBundle\Entity\School|null
      */
-    public function getFio()
+    public function getIdschool()
     {
-        return $this->fio;
+        return $this->idschool;
     }
 
     /**
@@ -86,15 +95,5 @@ class Schoolteacher
         $this->idschool = $idschool;
 
         return $this;
-    }
-
-    /**
-     * Get idschool.
-     *
-     * @return \AppBundle\Entity\School|null
-     */
-    public function getIdschool()
-    {
-        return $this->idschool;
     }
 }

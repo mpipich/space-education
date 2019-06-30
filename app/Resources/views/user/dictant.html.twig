@@ -1,0 +1,7 @@
+{% extends 'basemain.html.twig' %}
+{% block body %}
+    <form name="dictant" method="post" action="{{ path('user_dictant_result') }}">
+        <textarea style="width: 100%; height: 100%" name="dictanttext"></textarea>
+        <input type="submit">
+    </form>
+{% endblock %}
